@@ -3,10 +3,13 @@ clear
 xLabel = "Distance";
 yLabel = "Normalized Intensity";
 Legend = "NIR-IIx";
-% lineColor = [0 0.4470 0.7410]; % 蓝
-% lineColor = [0.8500 0.3250 0.0980]; % 橙
-lineColor = [0.4660 0.6740 0.1880]; % 绿
-% lineColor = [0.9290 0.6940 0.1250]; % 黄
+Blue = [0 0.4470 0.7410]; % 蓝
+Orange = [0.8500 0.3250 0.0980]; % 橙
+Green = [0.4660 0.6740 0.1880]; % 绿
+Yellow = [0.9290 0.6940 0.1250]; % 黄
+Purple = [0.4940 0.1840 0.5560]; % 紫
+SkyBlue = [0.3010 0.7450 0.9330]; % 天蓝
+lineColor = Yellow;
 CrosstalkPrecision = 2; % Crosstalk 保留位数
 
 %% 选取文件，并读入数据
@@ -15,6 +18,7 @@ FullFileName = [path, file];
 DataInput = readmatrix(FullFileName);
 x = DataInput(:,1);
 y = DataInput(:,2);
+y = smooth(y);
 y = (y-min(y))/(max(y)-min(y));  % 归一化
 
 %% 查找最明显的局部最小值及最大值，即为“谷”和“峰”
