@@ -30,6 +30,15 @@
 ### drawMultiSpectrumCSV
 
 适用于用多个.csv文件数据绘制多条光谱
+## 频域分析相关
+
+### drawMultiFFTline.m
+
+适用于对多个.tif 文件进行分析并绘制不同频率强度曲线
+
+### imgfft,m
+
+对一张图片进行fft，返回fft后图片及不同频率强度列表
 
 ## 辅助函数
 
